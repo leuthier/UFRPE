@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int ANONASC, ANOATUAL, IDADE, IDADE2;
+    printf("Informe o ano que voce nasceu:");
+    scanf("%d",&ANONASC);
+    printf("Informe o ano atual:");
+    scanf("%d",&ANOATUAL);
+    IDADE = ANOATUAL - ANONASC;
+    printf("Voce tem %d anos.", IDADE);
+    IDADE2 = 2020 - ANONASC;
+    printf("\nEm 2020 voce tera %d anos.", IDADE2);
+    return 0;
+}

@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    float FAB, LUCRO, IMP, V_DIST, V_IMP, V_FINAL;
+    printf("Informe o valor de fabrica do veiculo: ");
+    scanf("%f",&FAB);
+    printf("Informe o percentual de lucro: ");
+    scanf("%f",&LUCRO);
+    printf("Informe a porcentagem de imposto: ");
+    scanf("%f", &IMP);
+    V_DIST = FAB*(LUCRO/100);
+    V_IMP = FAB* (IMP/100);
+    V_FINAL = FAB + V_DIST + V_IMP;
+    printf("O valor de lucro do distribuidor foi de R$%.2f.", V_DIST);
+    printf("\nO valor correspondente aos impostos e igual a R$%.2f.", V_IMP);
+    printf("\nO preco final do veiculo e R$%.2f.", V_FINAL);
+    return 0;
+}

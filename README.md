@@ -1,4 +1,4 @@
 UFRPE
 =====
 
-Int. a Prog &amp; Lab. Inf.
+Int. a Prog & Lab. Programação.

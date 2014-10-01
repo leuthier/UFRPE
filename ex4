@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int horas;
+    float v_hora, s_minimo, s_bruto, s_rec, imp;
+    printf("Numero de horas trabalhadas ");
+    scanf("%d", &horas);
+    printf("Valor do salario minimo ");
+    scanf("%f", &s_minimo);
+    v_hora = s_minimo/2;
+    printf("Hora trabalhada vale R$%.2f", v_hora);
+    s_bruto = horas*v_hora;
+    printf("\nO salario bruto foi de R$%.2f", s_bruto);
+    imp = s_bruto*0.03;
+    printf("\nO valor dos impostos foi de R$%.2f", imp);
+    s_rec = s_bruto - imp;
+    printf("\nO salario a receber sera de R$%.2f", s_rec);
+
+    return 0;
+}

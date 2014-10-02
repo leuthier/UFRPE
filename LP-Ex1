@@ -11,7 +11,7 @@ for a in range (1, (vezes+1)):
     for b in range (0,c):
         if (a*b)%c==1:
             print b
-        elif (a%c==1):
+        if (c%a==0):
             print "muito dificil"
 x.close()    
 y = open("L0Q1.out", 'w')

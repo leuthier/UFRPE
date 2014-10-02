@@ -1,0 +1,24 @@
+x = open("L0Q1.in", 'r')
+vez = x.readline()
+vezes = int(vez)
+for i in range (1, (vezes+1)): #qtas vezes o programa vai rodar
+    linha = x.readline() #cria uma string para cada linha do arquivo
+    #com os espaços
+    sem_espaco = linha.split(" ") #tira o espaço da string e salva
+    #numa lista
+    a = int(sem_espaco[0]) #primeiro elemento da lista vai ser o inteiro A
+    c = int(sem_espaco[1]) #primeiro elemento da lista vai ser o inteiro B
+    vazia = " "
+    for b in range (0,c): #ja vai rodar c-1
+            if (a*b)% c==1:
+                vazia +="Caso "+str(i)+": "+str(b)+""
+                print vazia
+                break
+    else:
+        vazia +="Caso "+str(i)+": "+"muito dificil"+"\n"
+        print vazia
+x.close()    
+y = open("L0Q1.out", 'w')
+y.write(vazia)
+y.close()
+

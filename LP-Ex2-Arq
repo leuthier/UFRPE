@@ -1,0 +1,18 @@
+x = open("E2.in", 'r')
+y = open("E2.out", 'w')
+linha = x.readline()
+linhas = linha.split(" ")
+ax0 = linhas[0]
+ay0 = linhas[1]
+ax1 = linhas[2]
+ay1 = linhas[3]
+bx0 = linhas[4]
+by0 = linhas[5]
+bx1 = linhas[6]
+by1 = linhas[7]
+if (ax0 > bx1) or (ay0 > ay1) or (bx0 > ax1) or (by0 > ay1):
+    y.write("0")
+else:
+    y.write("1")
+x.close()
+y.close()

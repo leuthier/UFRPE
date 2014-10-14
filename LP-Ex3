@@ -1,0 +1,24 @@
+x = open("E3.in", 'r')
+y = open("E3.out", 'w')
+casos = x.readline()
+if (int(casos)>=1) and (int(casos)<=1000):
+    for i in range(1,int(casos)+1):
+        linha = x.readline()
+        tira_esp = linha.split(" ")
+        a = int(tira_esp[0])
+        b = int(tira_esp[1])
+        if (a>=1) and (a<=1000) and (b>=1) and (b<=1000):
+            bomba=a-b
+            vazia= " "
+            vazia +="Caso "+str(i)+": "+str(bomba)+"\n"
+            y.write(vazia)
+        else:
+            vazia+="Caso "+str(i)+": "+"Não está dentro da restrição"
+            y.write(vazia)
+else:
+    vazia+="Numero de casos testes fora da restrição"
+    y.write(vazia)
+x.close()
+y.close()
+
+        

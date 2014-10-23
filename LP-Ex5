@@ -1,5 +1,6 @@
-x = open("E5.in", 'r')
-y = open("E5.out", 'w')
+import sys
+x = open("sys.argv[1]", 'r')
+y = open("sys.argv[2]", 'w')
 T = x.readline()
 if (int(T)>=1) and (int(T)<=100):
     for i in range(1,int(T)+1):

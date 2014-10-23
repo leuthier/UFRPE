@@ -1,0 +1,40 @@
+x = open("E5.in", 'r')
+y = open("E5.out", 'w')
+T = x.readline()
+if (int(T)>=1) and (int(T)<=100):
+    for i in range(1,int(T)+1):
+        linha = x.readline()
+        esp = linha.split(" ")
+        a = int(esp[0])
+        b = int(esp[1])
+        vazia = " "
+        a_str=str(a)
+        b_str=str(b)
+        print ((a_str),(b_str)) #printando td do arq de entrada
+        y.write(a_str)
+        def F(n):
+            if (int(n)==1):
+                return 1
+                cont += 1
+            if (int(n)%2==0):
+                return F(n/2)
+                cont += 1
+            if (int(n)%2==1):
+                return F(3*n+1)
+                cont += 1
+        def G(n):
+            vazia += "Caso "+str(i)+" : "+str(cont)+"\n"
+else:
+    vazia+="Numero de casos testes fora da restrição"
+    y.write(vazia)
+x.close()
+y.close() 
+##    for b in range (0,c): 
+##        if (a*b)% c==1:
+##            vazia +="Caso "+str(i)+": "+str(b)+"\n"
+##            y.write(vazia)
+##            break
+##    else:
+##        vazia +="Caso "+str(i)+": "+"muito dificil"+"\n"          
+##        y.write(vazia)
+

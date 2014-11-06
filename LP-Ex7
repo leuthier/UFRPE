@@ -1,0 +1,34 @@
+entra = open("E7entrada.txt.in","r")
+testes = entra.readline()
+if (1<= int(testes)) and (int(testes) <= 1000):
+    f = [] #fila regular
+    p = [] #fila preferencial
+    for i in range (1,(int(testes)+1)):
+        linha = entra.readline()
+        esp = linha.split()
+        
+        if esp[0] == "p":
+            p.append(esp[1]) #so estou pegando 1 numero depois do p
+            
+        if esp[0] == "f":
+            f.append(esp[1])
+            
+        caso="Caso "+str(i)+":\n"
+        concatena=""
+        resultado = caso + concatena
+        print(resultado)
+        if f == []:
+            concatena +="0 "
+            result = caso + concatena
+    
+        else:
+            menor = min(f) #nao eh o menor
+            concatena += str(menor)
+            print(concatena)
+        if linha == "I":
+            print ("Imprimir como ele quer:", concatena)
+        print(result)
+else:
+    print ("Numeros de casos testes fora da restricao.")
+entra.close()
+#if (1<= int(n)) and (int(n)<=10000): #n - numero de comandos do caso

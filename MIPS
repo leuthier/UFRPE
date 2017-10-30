@@ -1,0 +1,57 @@
+# lui -> carrega o bit mais significativo, so 16 bits
+# li -> carrega instruçao de 32bits no registrador
+# sw -> carregar instruçoes do registrador e colocar na memoria
+# load -> carrega da memoria e coloca no registrador
+# addi -> passa valor decimal como imediato
+# add -> todos registradores
+
+##############
+## EXERCICIO 1
+##############
+lui $s0, 0x1001
+li $s0, 0x10010000
+addi $t0, $zero, 1 # valor 1 vai para o registrador t0
+sw $t0, 0($s0) # 0 é o deslocamento a partir do endereço de $s0 (endereço de memória) -> coloque o conteudo de t0 na posiçao s0 + 0 posiçoes
+
+addi $t1, $zero, 3 
+sw $t1, 4($s0)
+
+addi $t2, $zero, 2 
+sw $t2, 8($s0)
+
+addi $t3, $zero, 1 
+sw $t3, 12($s0)
+
+addi $t4, $zero, 4 
+sw $t4, 16($s0)
+
+addi $t5, $zero, 5
+sw $t5, 20($s0)
+
+#############
+# EXERCICIO 2 
+#############
+li $s1, 0x10010020
+lw $t0, 0($s0)
+add $t0, $t0, $t0
+sw $t0, 0($s1)
+
+lw $t1, 4($s0)
+add $t1, $t1, $t1
+sw $t1, 0($s1)
+
+lw $t2, 8($s0)
+add $t2, $t2, $t2
+sw $t2, 0($s1)
+
+lw $t3, 12($s0)
+add $t3, $t3, $t3
+sw $t3, 0($s1)
+
+lw $t4, 16($s0)
+add $t4, $t4, $t4
+sw $t4, 0($s1)
+
+lw $t5, 20($s0)
+add $t5, $t5, $t5
+sw $t5, 0($s1)

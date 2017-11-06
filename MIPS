@@ -55,3 +55,95 @@ sw $t4, 0($s1)
 lw $t5, 20($s0)
 add $t5, $t5, $t5
 sw $t5, 0($s1)
+
+
+######### PROFESSOR - RESPOSTAS #########
+
+# a questao 4 depende do que ja foi feito nas questao 1, 2 e 3
+add  $s0, $zero, $zero  # inicializa com zero o registrador $s0
+lui  $s0, 0x1000	# carrega o endereco base do array a no registrador $s0
+ori  $s0, 0x0100
+addi $t0, $zero, 1	# carrega o valor 1 no registrador $t0
+sw   $t0, 0($s0)	# carrega o valor de $t0 na posicao 0 do array
+addi $t0, $zero, 3	# carrega o valor 3 no registrador $t0
+sw   $t0, 4($s0)	# carrega o valor de $t0 na posicao 1 do array
+addi $t0, $zero, 2	# carrega o valor 2 no registrador $t0
+sw   $t0, 8($s0)	# carrega o valor de $t0 na posicao 2 do array
+addi $t0, $zero, 1	# carrega o valor 1 no registrador $t0
+sw   $t0, 12($s0)	# carrega o valor de $t0 na posicao 3 do array
+addi $t0, $zero, 4	# carrega o valor 4 no registrador $t0
+sw   $t0, 16($s0)	# carrega o valor de $t0 na posicao 4 do array
+addi $t0, $zero, 5	# carrega o valor 5 no registrador $t0
+sw   $t0, 20($s0)	# carrega o valor de $t0 na posicao 5 do array
+
+# aqui comeca a questao 2 dado que o codigo da questao 1 ja foi executado
+add  $s1, $zero, $zero  # inicializa com zero o registrador $s1
+lui  $s1, 0x1000	# carrega o endereco base do array b no registrador $s1
+ori  $s1, 0x0120
+lw   $t0, 0($s0)	# carrega o valor da posicao 0 do array a no registrador $t0
+sll  $t0, $t0, 1	# multiplica o valor do registrador $t0 por 2
+sw   $t0, 0($s1)	# carrega o valor de $t0 na posicao 0 do array b
+lw   $t0, 4($s0)	# carrega o valor da posicao 1 do array a no registrador $t0
+sll  $t0, $t0, 1	# multiplica o valor do registrador $t0 por 2
+sw   $t0, 4($s1)	# carrega o valor de $t0 na posicao 1 do array b
+lw   $t0, 8($s0)	# carrega o valor da posicao 2 do array a no registrador $t0
+sll  $t0, $t0, 1	# multiplica o valor do registrador $t0 por 2
+sw   $t0, 8($s1)	# carrega o valor de $t0 na posicao 2 do array b
+lw   $t0, 12($s0)	# carrega o valor da posicao 3 do array a no registrador $t0
+sll  $t0, $t0, 1	# multiplica o valor do registrador $t0 por 2
+sw   $t0, 12($s1)	# carrega o valor de $t0 na posicao 3 do array b
+lw   $t0, 16($s0)	# carrega o valor da posicao 4 do array a no registrador $t0
+sll  $t0, $t0, 1	# multiplica o valor do registrador $t0 por 2
+sw   $t0, 16($s1)	# carrega o valor de $t0 na posicao 4 do array b
+lw   $t0, 20($s0)	# carrega o valor da posicao 5 do array a no registrador $t0
+sll  $t0, $t0, 1	# multiplica o valor do registrador $t0 por 2
+sw   $t0, 20($s1)	# carrega o valor de $t0 na posicao 5 do array b
+
+# aqui comeca a questao 3 dado que o codigo das questoes 1 e 2 ja foi executado
+addi $s3, $zero, 6      # carrega em $s3 o n?mero de iteracoes do loop
+add  $s4, $zero, $zero	# inicializa o registrador $s4 com 0, sera o indice do loop
+add  $v0, $zero, $zero  # inicializa o registrador $v0 com 0
+add  $v1, $zero, $zero  # inicializa o registrador $v1 com 0
+loop:
+lw   $t0, 0($s0)	# carrega o valor da posicao 1 do array a no registrador $t0
+lw   $t1, 0($s1)	# carrega o valor da posicao 1 do array a no registrador $t0
+add  $v0, $v0, $t0      # acumula mais um valor do array a
+add  $v1, $v1, $t1      # acumula mais um valor do array b
+addi $s0, $s0, 4        # incrementa o endereco base do array a
+addi $s1, $s1, 4        # incrementa o endereco base do array b
+add  $s4, $s4, 1	# incrementa o indice do loop
+bne  $s4, $s3, loop     # caso nao tenha terminado todas a iteracoes programadas do loop
+nop
+
+# aqui comeca a questao 3 dado que o codigo das questoes 1, 2 e 3 ja foi executado
+add  $s4, $zero, $zero	# inicializa o registrador $s4 com 0, sera o indice do loop
+add  $s0, $zero, $zero  # inicializa com zero o registrador $s0
+lui  $s0, 0x1000	# recarrega o endereco base do array a no registrador $s0
+ori  $s0, 0x0100
+loop2:
+lw   $t0, 0($s0)	# carrega o valor da posicao 1 do array a no registrador $t0
+andi $t0, $t0, 0x0001   # mantem apenas o bit menos significativo do numero, se este bit e igual a 1 o numero e impar
+beq  $t0, $zero, desvio1   # caso seja zero o numero e par e nao precisa substituir
+sw   $v0, 0($s0)        # substitui a posicao atual do array a pelo valor do registrador $v0
+desvio1:
+addi $s0, $s0, 4        # incrementa o endereco base do array a
+add  $s4, $s4, 1	# incrementa o indice do loop
+bne  $s4, $s3, loop2     # caso nao tenha terminado todas a iteracoes programadas do loop
+nop
+
+# aqui comeca a questao 5
+addi $t3, $zero, 1      # carrega o valor 1 que sera utilizado nas comparacoes do switch case
+addi $t4, $zero, 2      # carrega o valor 2 que sera utilizado nas comparacoes do switch case
+case1:
+bne  $t0, $t3, case2    # caso o valor de a ($t0) nao seja igual a 1 ($t3) vai para o case 2
+add  $t1, $t2, $t3      # implementa a soma b = c + 1 ($t1 = $t2 + $t3)
+j exit			# implementa o break do case
+case2:
+bne  $t0, $t4, default  # caso o valor de a ($t0) nao seja igual a 2 ($t4) vai para o case default
+add  $t1, $t2, $t4      # implementa a soma b = c + 2 ($t1 = $t2 + $t4)
+j exit			# implementa o break do case
+default:
+add  $t1, $t2, $zero      # implementa a atribuicao b = c ($t1 = $t2)
+exit:
+nop
+
